@@ -1,0 +1,1 @@
+> Source code copied from [Cassandra Analytics](https://github.com/apache/cassandra-analytics) repository.

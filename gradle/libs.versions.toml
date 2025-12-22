@@ -1,0 +1,44 @@
+[versions]
+guava = "33.0.0-jre"
+junit-jupiter = "5.10.2"
+assertj = "3.24.2"
+quicktheories = "0.26"
+mockito = "4.10.0"
+cassandra-analytics = "0.2.0"
+jetbrains-annotations = "23.0.0"
+slf4j-api = "1.7.30"
+kryo = "4.0.2"
+jackson = "2.12.7"
+spark = "3.2.2"
+jna = "5.9.0"
+
+[libraries]
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+spark-core = { module = "org.apache.spark:spark-core_2.13", version.ref = "spark" }
+spark-sql = { module = "org.apache.spark:spark-sql_2.13", version.ref = "spark" }
+spark-catalyst = { module = "org.apache.spark:spark-catalyst_2.13", version.ref = "spark" }
+cassandra-analytics-core = { module = "org.apache.cassandra:cassandra-analytics-core_spark3_2.13", version.ref = "cassandra-analytics" }
+cassandra-analytics-bridge = { module = "org.apache.cassandra:cassandra-bridge_spark3_2.13", version.ref = "cassandra-analytics" }
+cassandra-analytics-spark-converter = { module = "org.apache.cassandra:cassandra-analytics-spark-converter_spark3_2.13", version.ref = "cassandra-analytics" }
+cassandra-analytics-sidecar-client = { module = "org.apache.cassandra:cassandra-analytics-sidecar-client", version.ref = "cassandra-analytics" }
+cassandra-analytics-common = { module = "org.apache.cassandra:cassandra-analytics-common", version.ref = "cassandra-analytics" }
+cassandra-analytics-integration-framework = { module = "org.apache.cassandra:cassandra-analytics-integration-framework_spark3_2.13", version.ref = "cassandra-analytics" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+quicktheories = { module = "org.quicktheories:quicktheories", version.ref = "quicktheories" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j-api" }
+kryo-shaded = { module = "com.esotericsoftware:kryo-shaded", version.ref = "kryo" }
+jackson-annotations = { module = "com.fasterxml.jackson.core:jackson-annotations", version.ref = "jackson" }
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
+
+cassandra-four-zero-types = { module = "org.apache.cassandra:cassandra-four-zero-types", version.ref = "cassandra-analytics" }
+cassandra-four-zero-avro-converter = { module = "org.apache.cassandra:cassandra-four-zero-avro-converter", version.ref = "cassandra-analytics" }
+cassandra-analytics-spark-four-zero-converter = { module = "org.apache.cassandra:cassandra-analytics-spark-four-zero-converter_spark3_2.13", version.ref = "cassandra-analytics" }
+cassandra-five-zero-bridge = { module = "org.apache.cassandra:cassandra-five-zero-bridge", version.ref = "cassandra-analytics" }
