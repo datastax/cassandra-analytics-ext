@@ -1,0 +1,100 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-analytics-spark-converter_spark3_2.13",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0.jar",
+          "size": 58301,
+          "sha512": "f6f0baefd6551cba17345f4aa9ad66bbb0ed77a72ea53b7d6ad0b3b7b94d326ed63c21ea4f2f01835d154577bd3b1920e2474555afba98ce252082a315b22df6",
+          "sha256": "5b423a5959fb31c8f1042316d03fe4e91de0b05d8e4c565a9073e68c470cf69d",
+          "sha1": "d4b99d5896e5cf1cb26dbe5543293307c378970c",
+          "md5": "e586a850681063d5bf48b305dcf764d4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0.jar",
+          "size": 58301,
+          "sha512": "f6f0baefd6551cba17345f4aa9ad66bbb0ed77a72ea53b7d6ad0b3b7b94d326ed63c21ea4f2f01835d154577bd3b1920e2474555afba98ce252082a315b22df6",
+          "sha256": "5b423a5959fb31c8f1042316d03fe4e91de0b05d8e4c565a9073e68c470cf69d",
+          "sha1": "d4b99d5896e5cf1cb26dbe5543293307c378970c",
+          "md5": "e586a850681063d5bf48b305dcf764d4"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0-javadoc.jar",
+          "url": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0-javadoc.jar",
+          "size": 462064,
+          "sha512": "3074014c699c7e40dd74f6144e6d4426b0b9e4ca06738ce806167716513866bc58dc61f9e0c0f2e467a8c4c9ea53d1cf2441808c452509f5e3630a02471d5685",
+          "sha256": "1c56f2e97801fbbb4ae37883d8a0b24e2f5814675e77b51f099189bfa2557709",
+          "sha1": "e35c9af58e2561e7afd7b388ba27f9678c6662eb",
+          "md5": "07d6e208afb32371c7c6916cb8015245"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0-sources.jar",
+          "url": "cassandra-analytics-spark-converter_spark3_2.13-0.2.0-sources.jar",
+          "size": 53932,
+          "sha512": "62db3f991fc37dd561f78abc45a40c6c777cc76f12a71b9a1c68d2dd5f81ec6a4ec593dd50ecfabea27f0ed3099d9868507eaa6304ea24a9cb3df51f4260d2f7",
+          "sha256": "578375a662cf172fedfa8c791bf474cbaaeaf8b7a7f18047b95c30ed71f3c0e1",
+          "sha1": "dd4c959226fa0f1518a205cff207a23acd9f9632",
+          "md5": "17938f7ff36b098515d728c0f8ac65dd"
+        }
+      ]
+    }
+  ]
+}

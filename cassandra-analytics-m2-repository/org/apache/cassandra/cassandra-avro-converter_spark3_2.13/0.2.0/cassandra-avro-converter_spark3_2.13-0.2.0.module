@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-avro-converter_spark3_2.13",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-bridge_spark3_2.13",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-avro-converter_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-avro-converter_spark3_2.13-0.2.0.jar",
+          "size": 6132,
+          "sha512": "74e48130eb6a0029d9e489506246e268d12d77b54f36e7c36cbaba890d43f888f9d315396ecddaafbf3a6527d809d753f7f6b1b95e83579e0c75deb848f11e51",
+          "sha256": "cdbe7ddb88a8a4d2f026eb756d8492447d388a1724ab2c7a3736fae62f77fde0",
+          "sha1": "1071fdbfb7fbc9fb687034d68ea2aa04e53285a3",
+          "md5": "2a10686d987da0b7c9743fd120258718"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-bridge_spark3_2.13",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-avro-converter_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-avro-converter_spark3_2.13-0.2.0.jar",
+          "size": 6132,
+          "sha512": "74e48130eb6a0029d9e489506246e268d12d77b54f36e7c36cbaba890d43f888f9d315396ecddaafbf3a6527d809d753f7f6b1b95e83579e0c75deb848f11e51",
+          "sha256": "cdbe7ddb88a8a4d2f026eb756d8492447d388a1724ab2c7a3736fae62f77fde0",
+          "sha1": "1071fdbfb7fbc9fb687034d68ea2aa04e53285a3",
+          "md5": "2a10686d987da0b7c9743fd120258718"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-avro-converter_spark3_2.13-0.2.0-javadoc.jar",
+          "url": "cassandra-avro-converter_spark3_2.13-0.2.0-javadoc.jar",
+          "size": 316102,
+          "sha512": "e13278d89b9fe12e41010b6ed86ec9b9b465cc9464be062c070fb6473268ebd344a1a117fc450d869f3984feb2d1c242a961097c8e02107d6e2be77cb9a662ad",
+          "sha256": "af4a9d0e3472b28b75d3478719295a8b54149cef7d3a0b32075374ed71a6cd27",
+          "sha1": "3b25dd8e7cd0da54df1100f0366603000b1fa2bc",
+          "md5": "401b6792b6e5ff820cbd92b843b52b98"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-avro-converter_spark3_2.13-0.2.0-sources.jar",
+          "url": "cassandra-avro-converter_spark3_2.13-0.2.0-sources.jar",
+          "size": 5186,
+          "sha512": "0596f8c6fb5e76d3245eab4f2337725d0a854f04bf37a22fe0853c828862b486a56567c20e81fe95fcde5c00bf094fce1e032f8cf80c63a3dba470ef9d1e33ee",
+          "sha256": "b337d52893e0a3472233db2e7703012631bcdfc07d19b11ce71121997f1de713",
+          "sha1": "89d50fce7d515ee984547b57fc64b5c7aa522d48",
+          "md5": "901b387d357421d89093b66edbce35c4"
+        }
+      ]
+    }
+  ]
+}

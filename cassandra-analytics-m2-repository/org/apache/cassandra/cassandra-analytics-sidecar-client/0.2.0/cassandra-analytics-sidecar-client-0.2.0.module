@@ -1,0 +1,172 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-analytics-sidecar-client",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "analytics-sidecar-vertx-client-all",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-analytics-sidecar-client-0.2.0.jar",
+          "url": "cassandra-analytics-sidecar-client-0.2.0.jar",
+          "size": 17861,
+          "sha512": "49d87a555d667ec4f5301ad6cd46b659128e59c0cbe89d19e53c8d8243a9b89ba45eae6373bb7a4a4a0d54e310439837b14b7ad125a0328f0b700339bc40d318",
+          "sha256": "f3d82299470523a05e1a11b1c9615addcdf6731bed35306e6f5b500f1dbf4807",
+          "sha1": "4c12dc310363111f0c3705a51ab84ea82cb13e11",
+          "md5": "c5006d5da6426979eb6fb7e746c2cae9"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-analytics-common",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "1.7.30"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "analytics-sidecar-vertx-client-all",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.slf4j",
+              "module": "slf4j-log4j12"
+            },
+            {
+              "group": "log4j",
+              "module": "log4j"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-analytics-sidecar-client-0.2.0.jar",
+          "url": "cassandra-analytics-sidecar-client-0.2.0.jar",
+          "size": 17861,
+          "sha512": "49d87a555d667ec4f5301ad6cd46b659128e59c0cbe89d19e53c8d8243a9b89ba45eae6373bb7a4a4a0d54e310439837b14b7ad125a0328f0b700339bc40d318",
+          "sha256": "f3d82299470523a05e1a11b1c9615addcdf6731bed35306e6f5b500f1dbf4807",
+          "sha1": "4c12dc310363111f0c3705a51ab84ea82cb13e11",
+          "md5": "c5006d5da6426979eb6fb7e746c2cae9"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-sidecar-client-0.2.0-javadoc.jar",
+          "url": "cassandra-analytics-sidecar-client-0.2.0-javadoc.jar",
+          "size": 336410,
+          "sha512": "1e2cc93fff82d71f6c54d7cc6a73a37553b0b92efcfdc9a62f3e008cf174ad8f9c1d3804ef5e9480261232faa679807692a492d3ef0300f0d7059e92bfd96de4",
+          "sha256": "b148f69e9cf5f03966d5c7235ff78701b570802175ab3752fcb73294972f0984",
+          "sha1": "4ae69d591784762e8882b80f2233eef91245fc42",
+          "md5": "824d428a255e55ca8b02a9fb2d81ac29"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-sidecar-client-0.2.0-sources.jar",
+          "url": "cassandra-analytics-sidecar-client-0.2.0-sources.jar",
+          "size": 11962,
+          "sha512": "de0c7d9e517035fdb4eb511d3d46af30f0d0e31ab23878f2631f31061ea73ce91bec3fb48782d2912543f6f20c125be877363bc9ac666b47fc93cce6ec05dead",
+          "sha256": "a71ae06d8666301d2efbafc77659f9b28cf04e42c979927b84c3df8955e032fa",
+          "sha1": "7dc66cb73677cce3a0afb01834864c15c53ac44d",
+          "md5": "f13e008f3a809b2e7093aaa555455bc9"
+        }
+      ]
+    }
+  ]
+}

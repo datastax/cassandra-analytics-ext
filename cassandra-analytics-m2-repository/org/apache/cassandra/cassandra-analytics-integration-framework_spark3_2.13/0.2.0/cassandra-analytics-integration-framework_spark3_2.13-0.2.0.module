@@ -1,0 +1,368 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-analytics-integration-framework_spark3_2.13",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "dtest-api",
+          "version": {
+            "requires": "0.0.16"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-params",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.vintage",
+          "module": "junit-vintage-engine",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.mockito",
+          "module": "mockito-inline",
+          "version": {
+            "requires": "4.10.0"
+          }
+        },
+        {
+          "group": "org.assertj",
+          "module": "assertj-core",
+          "version": {
+            "requires": "3.24.2"
+          }
+        },
+        {
+          "group": "com.datastax.cassandra",
+          "module": "cassandra-driver-core",
+          "version": {
+            "requires": "3.11.3"
+          }
+        },
+        {
+          "group": "io.vertx",
+          "module": "vertx-web",
+          "version": {
+            "requires": "4.5.1"
+          },
+          "excludes": [
+            {
+              "group": "junit",
+              "module": "junit"
+            }
+          ]
+        },
+        {
+          "group": "io.vertx",
+          "module": "vertx-junit5",
+          "version": {
+            "requires": "4.5.1"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-server",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.logging.log4j",
+              "module": "*"
+            },
+            {
+              "group": "org.slf4j",
+              "module": "*"
+            },
+            {
+              "group": "ch.qos.logback",
+              "module": "*"
+            }
+          ]
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-server-common",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0.jar",
+          "size": 59302,
+          "sha512": "daf9ad498a8adb3324d59c8640472409d00369b97548173f1e04e0f429dc4a5a4446d4ff47eb57a692c1762b5cbbc3786ebbf7971b8c8ab8a9de30555c010965",
+          "sha256": "f6573c8afaa70fb11c023c29fb540d9422e5e8476137f6d341e4f28b178bd1e3",
+          "sha1": "edc1cf24a1736d2d78248f3c48ab02dc0f5f5f93",
+          "md5": "5f3201b88d3bcaea82e3182d560cfb96"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-adapters-base",
+          "version": {
+            "requires": "0.2.0"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-adapters-cassandra41",
+          "version": {
+            "requires": "0.2.0"
+          }
+        },
+        {
+          "group": "com.google.inject",
+          "module": "guice",
+          "version": {
+            "requires": "7.0.0"
+          }
+        },
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "31.0.1-jre"
+          }
+        },
+        {
+          "group": "io.vertx",
+          "module": "vertx-web-client",
+          "version": {
+            "requires": "4.5.1"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-annotations",
+          "version": {
+            "requires": "2.14.3"
+          }
+        },
+        {
+          "group": "org.bouncycastle",
+          "module": "bcprov-jdk18on",
+          "version": {
+            "requires": "1.78"
+          }
+        },
+        {
+          "group": "org.bouncycastle",
+          "module": "bcpkix-jdk18on",
+          "version": {
+            "requires": "1.78"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "dtest-api",
+          "version": {
+            "requires": "0.0.16"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-params",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.vintage",
+          "module": "junit-vintage-engine",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.mockito",
+          "module": "mockito-inline",
+          "version": {
+            "requires": "4.10.0"
+          }
+        },
+        {
+          "group": "org.assertj",
+          "module": "assertj-core",
+          "version": {
+            "requires": "3.24.2"
+          }
+        },
+        {
+          "group": "com.datastax.cassandra",
+          "module": "cassandra-driver-core",
+          "version": {
+            "requires": "3.11.3"
+          }
+        },
+        {
+          "group": "io.vertx",
+          "module": "vertx-web",
+          "version": {
+            "requires": "4.5.1"
+          },
+          "excludes": [
+            {
+              "group": "junit",
+              "module": "junit"
+            }
+          ]
+        },
+        {
+          "group": "io.vertx",
+          "module": "vertx-junit5",
+          "version": {
+            "requires": "4.5.1"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-server",
+          "version": {
+            "requires": "0.2.0"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.logging.log4j",
+              "module": "*"
+            },
+            {
+              "group": "org.slf4j",
+              "module": "*"
+            },
+            {
+              "group": "ch.qos.logback",
+              "module": "*"
+            }
+          ]
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "sidecar-server-common",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0.jar",
+          "size": 59302,
+          "sha512": "daf9ad498a8adb3324d59c8640472409d00369b97548173f1e04e0f429dc4a5a4446d4ff47eb57a692c1762b5cbbc3786ebbf7971b8c8ab8a9de30555c010965",
+          "sha256": "f6573c8afaa70fb11c023c29fb540d9422e5e8476137f6d341e4f28b178bd1e3",
+          "sha1": "edc1cf24a1736d2d78248f3c48ab02dc0f5f5f93",
+          "md5": "5f3201b88d3bcaea82e3182d560cfb96"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0-javadoc.jar",
+          "url": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0-javadoc.jar",
+          "size": 414244,
+          "sha512": "94fb5483eff8b7e888c641fa0d9d4b8097bf647e5c48896abcfc4ebcbcdb0b5c64c18704496d327d4e3e4b6616f68e8eb81095f0bcdeaf6506486133f24798a9",
+          "sha256": "d0bc62cc3775b6e367f1b9627e7eb3b3b63d2a0ee42a0eab367e26476f4a2e36",
+          "sha1": "b0eb8ad32b72298a2bf270988eaef00b65c1ec31",
+          "md5": "156c2da1acc6c0d1f98b27701cd2ec8b"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0-sources.jar",
+          "url": "cassandra-analytics-integration-framework_spark3_2.13-0.2.0-sources.jar",
+          "size": 40737,
+          "sha512": "5a4124130b97304e58b1ad05ab7e40d811741dd90476b7a8f0c3e6c94bdf1204c7cb5d7e816a1690fdcbe26d55af8f2a745f092df20d720b2e252d714a5eafed",
+          "sha256": "a062095c28d3f9f5e59c738c1b1eed3a675e6d4fc87528b254d16d9f95740f23",
+          "sha1": "13eb72d37a8ce1ec7989df3196362ba1ad3ccccb",
+          "md5": "59a97a3ee618a047ffdc546a7715bb65"
+        }
+      ]
+    }
+  ]
+}

@@ -24,3 +24,13 @@ include 'cassandra-analytics-spark-four-nine-converter'
 include 'cassandra-analytics-example-hcd'
 include 'cassandra-analytics-integration-framework'
 include 'cassandra-analytics-integration-tests'
+
+// add cassandra-analytics-m2-repository/ for pre-compiled jarfiles for binary releases
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // or FAIL_ON_PROJECT_REPOS
+  repositories {
+    maven { url = uri("$rootDir/cassandra-analytics-m2-repository") }
+    mavenLocal()
+    mavenCentral()
+  }
+}

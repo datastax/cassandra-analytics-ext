@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Jan 15 13:05:37 CET 2026
+dse-db-all-4.0.11.0-SNAPSHOT-javadoc.jar>=
+dse-db-all-4.0.11.0-SNAPSHOT.jar>=
+dse-db-all-4.0.11.0-SNAPSHOT-sources.jar>=
+dse-db-all-4.0.11.0-SNAPSHOT.pom>=

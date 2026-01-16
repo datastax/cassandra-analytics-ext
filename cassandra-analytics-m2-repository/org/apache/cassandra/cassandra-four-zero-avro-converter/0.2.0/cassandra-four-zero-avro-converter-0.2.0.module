@@ -1,0 +1,100 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-four-zero-avro-converter",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-avro-converter-0.2.0.jar",
+          "url": "cassandra-four-zero-avro-converter-0.2.0.jar",
+          "size": 7311,
+          "sha512": "1a0ee13c523b2f595a5dfadfb51649e5f5cf0e1a8efd5a1b6b45b350630a0cbd7dc6340c978687c3668ecb014d96d8b4cf13e8d3070e788b8b3fffc08f5a7247",
+          "sha256": "62a10f0ef854c948b42294aed2e403dd5708a52cec6cffb65130cb577991d1a1",
+          "sha1": "2a430f971be04c0794463abf67a76a92f07add84",
+          "md5": "3e81c36c9f0677605dcb789861cfb868"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-avro-converter-0.2.0.jar",
+          "url": "cassandra-four-zero-avro-converter-0.2.0.jar",
+          "size": 7311,
+          "sha512": "1a0ee13c523b2f595a5dfadfb51649e5f5cf0e1a8efd5a1b6b45b350630a0cbd7dc6340c978687c3668ecb014d96d8b4cf13e8d3070e788b8b3fffc08f5a7247",
+          "sha256": "62a10f0ef854c948b42294aed2e403dd5708a52cec6cffb65130cb577991d1a1",
+          "sha1": "2a430f971be04c0794463abf67a76a92f07add84",
+          "md5": "3e81c36c9f0677605dcb789861cfb868"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-avro-converter-0.2.0-javadoc.jar",
+          "url": "cassandra-four-zero-avro-converter-0.2.0-javadoc.jar",
+          "size": 306650,
+          "sha512": "c20f50bf16644cff3929a39a1256055cf4f3ab2c9f890f684d07ebdadc4e6dbf827e9670dec1bd24897daa4881f435418a8f4424cd173eda60be30767aada8c5",
+          "sha256": "f24557923bdd32060e8cb28bd57bb01bf91b6d3549182a90571728df0e6567ce",
+          "sha1": "62a1b3c5b4cbb642e1f5905f4e4f4f0bd036b27c",
+          "md5": "7481b05121734a7c6507114e5e81d058"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-avro-converter-0.2.0-sources.jar",
+          "url": "cassandra-four-zero-avro-converter-0.2.0-sources.jar",
+          "size": 4326,
+          "sha512": "878a975172fb7cec1d741a766af27be99a2810f43268d66d2d65502e35b4c7c9c7d2ed008ebf015dcce024a327582cd6d27f7685eae5f1bee882472f1fc473ff",
+          "sha256": "be1ee657fb64a5221cd7612cc680ba43442f6bb1ef1551bc840c4ecd9ea1db98",
+          "sha1": "d72ac7509e2802929d172ce004117729c9159843",
+          "md5": "41200c304c2d501a4c6e5270de180a85"
+        }
+      ]
+    }
+  ]
+}

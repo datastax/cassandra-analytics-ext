@@ -1,0 +1,269 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-bridge_spark3_2.13",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-analytics-common",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0.jar",
+          "size": 21498,
+          "sha512": "be14d8a81f3cd9b0fc9e1fc405e1720eb47b9ffe5c05dfae239bfa3757613e38c810a325d9a0b0b8f0e9606d4ae7c6f0ab6454ee382970696819df131f135b38",
+          "sha256": "8cb383aec7ef1c44c8e82a72456c96a9ec9852190a81120287a18986c7650b90",
+          "sha1": "fcd238ad2bf79b4500929e8610406e3a2290a51c",
+          "md5": "7662dc6e76cdd67f46db960560a99fe2"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "1.7.30"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-analytics-common",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0.jar",
+          "size": 21498,
+          "sha512": "be14d8a81f3cd9b0fc9e1fc405e1720eb47b9ffe5c05dfae239bfa3757613e38c810a325d9a0b0b8f0e9606d4ae7c6f0ab6454ee382970696819df131f135b38",
+          "sha256": "8cb383aec7ef1c44c8e82a72456c96a9ec9852190a81120287a18986c7650b90",
+          "sha1": "fcd238ad2bf79b4500929e8610406e3a2290a51c",
+          "md5": "7662dc6e76cdd67f46db960560a99fe2"
+        }
+      ]
+    },
+    {
+      "name": "testFixturesApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-bridge_spark3_2.13",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0-test-fixtures.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0-test-fixtures.jar",
+          "size": 17360,
+          "sha512": "2add670e3756807a88e50ca4343821602fe4189239de5da6fc9a22b43140d1fc9d7000727684d3f0bb61bd7c873c05becc0d7ead34d5af51a9562d63efdf7157",
+          "sha256": "45b2c03f5e13c069fc0356525f6fb92622ee95505d101aaac6defff7be0f3822",
+          "sha1": "bf82b5765425ea3f4ae9b2e83ee66bcbcac58ea3",
+          "md5": "d0c0973c813676fe26c1161880a300ee"
+        }
+      ],
+      "capabilities": [
+        {
+          "group": "org.apache.cassandra",
+          "name": "cassandra-bridge-test-fixtures",
+          "version": "0.2.0"
+        }
+      ]
+    },
+    {
+      "name": "testFixturesRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-analytics-spark-converter_spark3_2.13",
+          "version": {
+            "requires": "0.2.0"
+          }
+        },
+        {
+          "group": "org.quicktheories",
+          "module": "quicktheories",
+          "version": {
+            "requires": "0.26"
+          }
+        },
+        {
+          "group": "com.intellij",
+          "module": "annotations",
+          "version": {
+            "requires": "9.0.4"
+          }
+        },
+        {
+          "group": "org.apache.spark",
+          "module": "spark-core_2.13",
+          "version": {
+            "requires": "3.2.2"
+          }
+        },
+        {
+          "group": "org.apache.spark",
+          "module": "spark-sql_2.13",
+          "version": {
+            "requires": "3.2.2"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.12.7"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-simple",
+          "version": {
+            "requires": "1.7.26"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-params",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-engine",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.apache.cassandra",
+          "module": "cassandra-bridge_spark3_2.13",
+          "version": {
+            "requires": "0.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0-test-fixtures.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0-test-fixtures.jar",
+          "size": 17360,
+          "sha512": "2add670e3756807a88e50ca4343821602fe4189239de5da6fc9a22b43140d1fc9d7000727684d3f0bb61bd7c873c05becc0d7ead34d5af51a9562d63efdf7157",
+          "sha256": "45b2c03f5e13c069fc0356525f6fb92622ee95505d101aaac6defff7be0f3822",
+          "sha1": "bf82b5765425ea3f4ae9b2e83ee66bcbcac58ea3",
+          "md5": "d0c0973c813676fe26c1161880a300ee"
+        }
+      ],
+      "capabilities": [
+        {
+          "group": "org.apache.cassandra",
+          "name": "cassandra-bridge-test-fixtures",
+          "version": "0.2.0"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0-javadoc.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0-javadoc.jar",
+          "size": 358290,
+          "sha512": "470cd9e446d441860c5cc8280313d296c2d536ea67806d6a38d4792773878af82b1b2d82ef9bc2458fee4edb44cbf3a39847a7aa8f2c37867bacc572fd6a145f",
+          "sha256": "4c01c9f77ee1813126d0bc0e11f7adcc81bff11da6f5c498401ac2da4c3fc94b",
+          "sha1": "2bee634ed4839e418370a9726a4d104c48094401",
+          "md5": "b83d19e3673738d5bc580c62733f8c29"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-bridge_spark3_2.13-0.2.0-sources.jar",
+          "url": "cassandra-bridge_spark3_2.13-0.2.0-sources.jar",
+          "size": 16787,
+          "sha512": "41a6f7c19f5c111ed45ef228735afc4705cc1d78d5fe4d56cdcb368010da7659cd1e6f6c7dcf18d7c5229c2847c0b05ce1c38091cbe16f4864bfbda0a0d8a022",
+          "sha256": "f1715d43da10bd76b0fe5b4487ff4eb5dd7751662f373318b554b510110ef010",
+          "sha1": "c2fd5a04dd9157807a689467e3a14a83656af2a8",
+          "md5": "51c5128561e12d5f99f8e569bc8eb21c"
+        }
+      ]
+    }
+  ]
+}

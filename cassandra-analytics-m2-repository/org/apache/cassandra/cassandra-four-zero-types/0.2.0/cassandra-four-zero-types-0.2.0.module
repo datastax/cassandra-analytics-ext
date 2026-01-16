@@ -1,0 +1,100 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-four-zero-types",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-types-0.2.0.jar",
+          "url": "cassandra-four-zero-types-0.2.0.jar",
+          "size": 100444,
+          "sha512": "a8ff228fc9ce3446ed20d36d40bbffdcd649f8892bb3534547f912ea495a469b5244ac846176e5b3bcff960ae46a4ae9e1605f6ff5ca616f0fb038a0079c1248",
+          "sha256": "9b65663224afb8db524f0dce403567202d44b6ead1153572e7e3e21245434dba",
+          "sha1": "d1a7ce5561da71961594929fbbf6620c1b0d4ca3",
+          "md5": "bb055a4a9ef41c2aa0d3eb8e04c89785"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-types-0.2.0.jar",
+          "url": "cassandra-four-zero-types-0.2.0.jar",
+          "size": 100444,
+          "sha512": "a8ff228fc9ce3446ed20d36d40bbffdcd649f8892bb3534547f912ea495a469b5244ac846176e5b3bcff960ae46a4ae9e1605f6ff5ca616f0fb038a0079c1248",
+          "sha256": "9b65663224afb8db524f0dce403567202d44b6ead1153572e7e3e21245434dba",
+          "sha1": "d1a7ce5561da71961594929fbbf6620c1b0d4ca3",
+          "md5": "bb055a4a9ef41c2aa0d3eb8e04c89785"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-types-0.2.0-javadoc.jar",
+          "url": "cassandra-four-zero-types-0.2.0-javadoc.jar",
+          "size": 552583,
+          "sha512": "d27e7c4374eeed5d3f3ede124d0e60a892a95c59a5737510943386f4b229097e4a77ab6adca0c5f47b7c61b54430c6a44a154b618e4fbeeaf1690668371af971",
+          "sha256": "8afb7b42a8c1dfa1d0d81a7e79f1798898be1d4a11cc1dbfcd06cbec976d51fb",
+          "sha1": "614fb268a247f1abdbbf84c6abe77290552a0469",
+          "md5": "f1492ce99da8b0faf6c76936948528fe"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-four-zero-types-0.2.0-sources.jar",
+          "url": "cassandra-four-zero-types-0.2.0-sources.jar",
+          "size": 72073,
+          "sha512": "07985e129fe6d55e30adf951899013655704c591d8da375934080b3df84653281c83070a1eab219ff5b5a0ad7b16e7249265d40611d88508385b28b82f88ac97",
+          "sha256": "a93507c01ab5e750062fc7e8abf10fe10981e41d305f2864f8600bdf73c12d01",
+          "sha1": "1ba1831260da444f883fc65b205b1605bd66ac17",
+          "md5": "03933455b3f3ef8892c2a2829068188c"
+        }
+      ]
+    }
+  ]
+}

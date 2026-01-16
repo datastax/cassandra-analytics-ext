@@ -1,0 +1,109 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-analytics-common",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-common-0.2.0.jar",
+          "url": "cassandra-analytics-common-0.2.0.jar",
+          "size": 279057,
+          "sha512": "de605aca77b40a0672734b8905d8dfa355e33d31226c2bf6ab574e1527ea8b45388d25ef307f71272d9ed601d7874464bc1063eb2242552ecac16076c39daab1",
+          "sha256": "61b337f2f4ea5fe1ed7e3eded8186dfcd9b8aa65aa947823e1e9592168c6dc5e",
+          "sha1": "a4a542546d495166618f63983b650897cbb934ad",
+          "md5": "df71950268b8fff8daa06804a1dbe723"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "1.7.30"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "cassandra-analytics-common-0.2.0.jar",
+          "url": "cassandra-analytics-common-0.2.0.jar",
+          "size": 279057,
+          "sha512": "de605aca77b40a0672734b8905d8dfa355e33d31226c2bf6ab574e1527ea8b45388d25ef307f71272d9ed601d7874464bc1063eb2242552ecac16076c39daab1",
+          "sha256": "61b337f2f4ea5fe1ed7e3eded8186dfcd9b8aa65aa947823e1e9592168c6dc5e",
+          "sha1": "a4a542546d495166618f63983b650897cbb934ad",
+          "md5": "df71950268b8fff8daa06804a1dbe723"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-common-0.2.0-javadoc.jar",
+          "url": "cassandra-analytics-common-0.2.0-javadoc.jar",
+          "size": 1062328,
+          "sha512": "f24bf7dab4794deda1b52380ace877e4db5c5bc392cab1b255bed6b5e5ac9485179eda56022ab7703c6435e63a5aa187f2c46dbc012d766381238c3283479cbf",
+          "sha256": "5cfe59e7b6b9fd527e4d4506839e9d9b7d9fdfe83182168430cadb24c2f2c698",
+          "sha1": "8d033984b18d3fa539b1101d8dfabece35b6f405",
+          "md5": "37d34201fc974eabeb16fcfc904b3ac2"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-analytics-common-0.2.0-sources.jar",
+          "url": "cassandra-analytics-common-0.2.0-sources.jar",
+          "size": 204391,
+          "sha512": "2780c2f3d6c3c7fc3eda0de5bebf0397fc49879b5d7eb9ce59790a172aab85fd257a50e30ee195a6c415bc1396d54977973bb8a1fe5eedf7ac82ced3c5751756",
+          "sha256": "852b7ff1b33a6e50a63af9e018f4ea6524833c0f02de27ccf587453c9a4b3064",
+          "sha1": "fa7f7db39d3e26ca6eef9691051eee88cd07b4fe",
+          "md5": "c970ef41275989813835f742d471415a"
+        }
+      ]
+    }
+  ]
+}

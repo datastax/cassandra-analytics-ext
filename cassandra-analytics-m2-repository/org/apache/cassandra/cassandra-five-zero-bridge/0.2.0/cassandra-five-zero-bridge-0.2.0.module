@@ -1,0 +1,100 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.cassandra",
+    "module": "cassandra-five-zero-bridge",
+    "version": "0.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "cassandra-five-zero-bridge-0.2.0.jar",
+          "url": "cassandra-five-zero-bridge-0.2.0.jar",
+          "size": 164706,
+          "sha512": "2760d304e469f15d464523f1819a7225bbc1d0a2030933a4754e60e2f26f66aa72b1c7ec23b2ec4c31c33e555e875ea64432d6f166dc05e8ba3ef0517bf4ea79",
+          "sha256": "9fced64d3051cb045f850006f4db806286b175778e3176624eb636ccace17569",
+          "sha1": "8d47dad26fe280ca76c0698457919f0380366dec",
+          "md5": "0c210219017b764d89e6e147591461ae"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-five-zero-bridge-0.2.0.jar",
+          "url": "cassandra-five-zero-bridge-0.2.0.jar",
+          "size": 164706,
+          "sha512": "2760d304e469f15d464523f1819a7225bbc1d0a2030933a4754e60e2f26f66aa72b1c7ec23b2ec4c31c33e555e875ea64432d6f166dc05e8ba3ef0517bf4ea79",
+          "sha256": "9fced64d3051cb045f850006f4db806286b175778e3176624eb636ccace17569",
+          "sha1": "8d47dad26fe280ca76c0698457919f0380366dec",
+          "md5": "0c210219017b764d89e6e147591461ae"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-five-zero-bridge-0.2.0-javadoc.jar",
+          "url": "cassandra-five-zero-bridge-0.2.0-javadoc.jar",
+          "size": 418794,
+          "sha512": "978b620c16bc3ac1abc21e106cec902fc3c32902a689252a5a72dc27edd9e1c9b7c71acca8868032c7b37c0cc43762c3162640b00c9b7f12c3b96a0feba319fc",
+          "sha256": "0f38170bca92415f1cf7294353e16e70cc0f4c5c35ab7d9e20ef5ea0e9b0132e",
+          "sha1": "a24911b2ec0ee94dcfcb20fa77ca65dbdf4601bf",
+          "md5": "f169f3e5fad7a373554cda3fe3f1aea9"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "cassandra-five-zero-bridge-0.2.0-sources.jar",
+          "url": "cassandra-five-zero-bridge-0.2.0-sources.jar",
+          "size": 58838,
+          "sha512": "64c2a59fdcac736d9535beec7e081fa31e49a1071460756f5bccb0c595fca70b5d3e93763233deaca86ba8c728b8f2e6bd69d9f53711e309940c005cba1b19ef",
+          "sha256": "86490792a871517d5d3df2446884fca556a00c23b2cdcd3eaf1666bde4419cb0",
+          "sha1": "4931dee7e7e5f9bba1140a8740503119b3d0f8c7",
+          "md5": "ada234048c1bd7be551c31d3840b4561"
+        }
+      ]
+    }
+  ]
+}
