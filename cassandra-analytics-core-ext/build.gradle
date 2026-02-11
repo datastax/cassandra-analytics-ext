@@ -37,9 +37,16 @@ dependencies {
     add('nonJar', files('../cassandra-four-nine-types/build/libs/four-zero-types.jar'))
     add('nonJar', files('../cassandra-analytics-spark-four-nine-converter/build/libs/four-zero-sparksql.jar'))
 
-    implementation (libs.cassandra.analytics.core) {
+    add('nonJar', files('../cassandra-five-zero/build/libs/five-zero.jar'))
+    add('nonJar', files('../cassandra-five-zero-bridge/build/libs/five-zero-bridge.jar'))
+    add('nonJar', files('../cassandra-five-zero-types/build/libs/five-zero-types.jar'))
+    add('nonJar', files('../cassandra-analytics-spark-five-zero-converter/build/libs/five-zero-sparksql.jar'))
+
+    implementation ("org.apache.cassandra:cassandra-analytics-core_spark3_${scalaVersion}:${analyticsVersion}") {
         transitive = false
     }
+    compileOnly("org.apache.spark:spark-sql_${scalaVersion}:${sparkVersion}")
+    compileOnly("org.apache.cassandra:cassandra-analytics-common:${analyticsVersion}")
 }
 
 jar {
@@ -55,7 +62,13 @@ shadowJar {
     dependsOn ':cassandra-four-nine-types:shadowJar'
     dependsOn ':cassandra-analytics-spark-four-nine-converter:shadowJar'
 
+    dependsOn ':cassandra-five-zero:shadowJar'
+    dependsOn ':cassandra-five-zero-bridge:shadowJar'
+    dependsOn ':cassandra-five-zero-types:shadowJar'
+    dependsOn ':cassandra-analytics-spark-five-zero-converter:shadowJar'
+
     exclude 'bridges/four-zero*'
+    exclude 'bridges/five-zero*'
 
     from(nonJar) {
         into("bridges")
@@ -66,12 +79,10 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId "com.datastax.cassandra"
-            artifactId "cassandra-analytics-core-ext_spark3_2.13"
+            artifactId "cassandra-analytics-core-ext_spark3_${scalaVersion}"
             version = "${project.version}"
 
             from components.shadow
-
-            // TODO: Add SCM and developer information?
 
             // Add dependencies to POM same as Cassandra Analytics Core module,
             // which we have just repackaged.
@@ -80,7 +91,7 @@ publishing {
                     def depsNode = asNode().appendNode("dependencies")
 
                     def resolveDepsForUsage = { usageName ->
-                        def cfg = configurations.detachedConfiguration(project.dependencies.create(libs.cassandra.analytics.core.get()))
+                        def cfg = configurations.detachedConfiguration(project.dependencies.create("org.apache.cassandra:cassandra-analytics-core_spark3_${scalaVersion}:${analyticsVersion}"))
                         cfg.attributes {
                             attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage, usageName))
                         }

@@ -25,7 +25,9 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.apache.cassandra.bridge.HcdVersion;
 import org.apache.cassandra.spark.KryoRegister;
+import org.apache.cassandra.spark.bulkwriter.BulkSparkConf;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.sql.DataFrameReader;
@@ -40,14 +42,14 @@ public class RowCountJob
 {
     private static final Logger log = LoggerFactory.getLogger(RowCountJob.class);
 
-    public static void main(String[] args)
+    public static void start(String[] args)
     {
-        // System.setProperty("spark.cassandra_analytics.cassandra.version", "5.0.0");
         System.setProperty("cassandra.analytics.bridges.sstable_format", "bti");
         SparkConf sparkConf = new SparkConf()
                 .loadFromSystemProperties(true)
                 .setAppName("Spark Cassandra Row Count Example")
-                .set("spark.master", "local[*]");
+                .set("spark.master", "local[*]")
+                .set(BulkSparkConf.CASSANDRA_VERSION, HcdVersion.HCD_2_0.getCassandraVersion());
 
         KryoRegister.setup(sparkConf);
 
@@ -63,7 +65,7 @@ public class RowCountJob
             Map<String, String> options = configure(sparkConf, sc);
 
             DataFrameReader reader = sql.read()
-                    .format("org.apache.cassandra.spark.sparksql.CassandraDataSource")
+                    .format("org.apache.cassandra.spark.sparksql.HcdDataSource")
                     .options(options);
             Dataset<Row> df = reader.load();
 
@@ -101,6 +103,13 @@ public class RowCountJob
         options.put("createSnapshot", "true");
         options.put("keyspace", sparkConf.get("spark.keyspace"));
         options.put("table", sparkConf.get("spark.table"));
+
+        // Optionally provide SSL certificates for mTLS authentication, authorization
+        // and transport encryption
+        // options.put("KEYSTORE_PATH", "/path/to/keystore.p12");
+        // options.put("KEYSTORE_PASSWORD", "password");
+        // options.put("TRUSTSTORE_PATH", "/path/to/truststore.jks");
+        // options.put("TRUSTSTORE_PASSWORD", "password");
 
         options.put("defaultParallelism", String.valueOf(sparkContext.defaultParallelism()));
         options.put("numCores", String.valueOf(numCores));

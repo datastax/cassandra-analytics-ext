@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
     // Reference HCD for BTI version 'cb' support (e.g. 4.0.11.0-8f317826cdb0).
-    implementation(group: 'com.datastax.dse', name: 'dse-db-all', version: "${project.datastaxCassandraVersion}-SNAPSHOT") {
+    implementation(group: 'com.datastax.dse', name: 'dse-db-all', version: "${project.datastaxCassandra4Version}-SNAPSHOT") {
         // Exclude JNA libraries from the cassandra-all dependency tree because Spark has its own version
         // and trying to load two different versions causes issues with the native libraries
         exclude(group: 'net.java.dev.jna')

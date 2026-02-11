@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation libs.cassandra.analytics.spark.four.zero.converter
+    implementation("org.apache.cassandra:cassandra-analytics-spark-four-zero-converter_spark3_${scalaVersion}:${analyticsVersion}")
 }
 
 jar {

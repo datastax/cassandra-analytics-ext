@@ -20,15 +20,15 @@ plugins {
 }
 
 dependencies {
-    implementation(group: "com.datastax.cassandra", name: "cassandra-analytics-core-ext_spark3_2.13", version: "0.1")
-    implementation(group: "org.apache.spark", name: "spark-core_2.13", version: "3.5.3")
-    implementation(group: "org.apache.spark", name: "spark-sql_2.13", version: "3.5.3")
+    implementation(group: "com.datastax.cassandra", name: "cassandra-analytics-core-ext_spark3_2.12", version: "0.2")
+    implementation(group: "org.apache.spark", name: "spark-core_2.12", version: "3.5.3")
+    implementation(group: "org.apache.spark", name: "spark-sql_2.12", version: "3.5.3")
 }
 
 compileJava.dependsOn ":cassandra-analytics-core-ext:publishToMavenLocal"
 
 application {
-    mainClass = "org.apache.cassandra.spark.example.RowCountJob"
+    mainClass = "org.apache.cassandra.spark.example.Launcher"
     applicationDefaultJvmArgs = ["-Dfile.encoding=UTF-8",
                                  "-Djdk.attach.allowAttachSelf=true",
                                  "--add-exports", "java.base/jdk.internal.misc=ALL-UNNAMED",

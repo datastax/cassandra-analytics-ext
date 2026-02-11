@@ -44,11 +44,11 @@ dependencies {
     testImplementation libs.junit.jupiter
     testImplementation project(path: ':cassandra-analytics-core-ext', configuration: 'shadow')
     testImplementation project(path: ':cassandra-analytics-integration-framework', configuration: 'shadow')
-    testImplementation libs.spark.core
-    testImplementation libs.spark.sql
-    testImplementation libs.spark.catalyst
-    testImplementation libs.cassandra.analytics.spark.converter
-    testImplementation libs.cassandra.analytics.bridge
+    testImplementation("org.apache.spark:spark-core_${scalaVersion}:${sparkVersion}")
+    testImplementation("org.apache.spark:spark-sql_${scalaVersion}:${sparkVersion}")
+    testImplementation("org.apache.spark:spark-catalyst_${scalaVersion}:${sparkVersion}")
+    testImplementation("org.apache.cassandra:cassandra-analytics-spark-converter_spark3_${scalaVersion}:${analyticsVersion}")
+    testImplementation("org.apache.cassandra:cassandra-bridge_spark3_${scalaVersion}:${analyticsVersion}")
     testImplementation libs.cassandra.analytics.sidecar.client
     testImplementation libs.kryo.shaded
 }
@@ -63,7 +63,7 @@ test {
     systemProperty "cassandra.integration.sidecar.test.enable_mtls", "false"
     minHeapSize = '1g'
     maxHeapSize = System.getenv("INTEGRATION_MAX_HEAP_SIZE") ?: "2048M"
-    maxParallelForks = 1
+    maxParallelForks = 1 // We cannot use parallel forks, because DTest JAR does not support dynamic port allocation
     forkEvery = 1  // Enables different end-to-end test classes use Spark contexts with different configurations
 
     beforeTest { descriptor ->
@@ -84,7 +84,7 @@ test {
     }
 
     if (JavaVersion.current().isJava11Compatible()) {
-        def JDK11_OPTIONS = ['-Djdk.attach.allowAttachSelf=true',
+        def JDK11_OPTIONS = ['-XX:-MaxFDLimit', '-Djdk.attach.allowAttachSelf=true',
                              '--add-exports', 'java.base/jdk.internal.misc=ALL-UNNAMED',
                              '--add-exports', 'java.base/jdk.internal.ref=ALL-UNNAMED',
                              '--add-exports', 'java.base/sun.nio.ch=ALL-UNNAMED',

@@ -272,7 +272,6 @@ public class BigIndexReader implements IIndexReader
         return chunk.length >= 0 ? chunk.length : compressedDataLength - chunk.offset;
     }
 
-    // TODO: Adjust tests names.
     /**
      * Returns the partial compressed size of a partition whose start or end overlaps with a compressed chunk.
      * This is an estimate because of the variable compressibility of partitions within the chunk.

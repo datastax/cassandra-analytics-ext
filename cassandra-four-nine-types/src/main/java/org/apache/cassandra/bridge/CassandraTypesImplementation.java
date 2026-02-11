@@ -38,13 +38,16 @@ public class CassandraTypesImplementation extends AbstractCassandraTypes
 {
     public static final CassandraTypesImplementation INSTANCE = new CassandraTypesImplementation();
 
-    public static synchronized void setup()
+    public static synchronized void setup(BridgeInitializationParameters params)
     {
         if (!CassandraTypesImplementation.setup)
         {
             // We never want to enable mbean registration in the Cassandra code we use so disable it here
             System.setProperty("org.apache.cassandra.disable_mbean_registration", "true");
             System.setProperty("cassandra.schema.force_load_local_keyspaces", "true");
+            // Cassandra Analytics requires static initialization of sstable format
+            // (it is not being looked up from Sidecar).
+            System.setProperty("cassandra.analytics.bridges.sstable_format", "bti");
             Config.setClientMode(true);
             // When we create a TableStreamScanner, we will set the partitioner directly on the table metadata
             // using the supplied IIndexStreamScanner.Partitioner. CFMetaData::compile requires a partitioner to

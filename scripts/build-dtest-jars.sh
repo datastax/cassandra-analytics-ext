@@ -38,9 +38,12 @@ else
   #   "cassandra-4.0:cassandra-4.0"
   # Due to MacOS being stuck on Bash < 4, we don't use associative arrays here.
   CANDIDATE_BRANCHES=(
+    # HCD 1.x version
     "main:8f317826cdb0747124929b768a67a9c23cc45f5b"
+    # HCD 2.x version
+    "main-5.0:deebade59f4bbfb9e126432e73870a0c4f2ebe11"
   )
-  BRANCHES=( ${BRANCHES:-main} )
+  BRANCHES=( ${BRANCHES:-main,main-5.0} )
   echo ${BRANCHES[*]}
   REPO=${REPO:-"https://github.com/datastax/cassandra.git"}
   SCRIPT_DIR=$( dirname -- "$( readlink -f -- "$0"; )"; )
@@ -92,6 +95,10 @@ exit 0
       cd "${branch}"
       if [ -z "${sha}" ] ; then
         git pull
+      fi
+      if [ -n "${sha}" ] ; then
+        git fetch --depth=1 upstream "${sha}"
+        git reset --hard FETCH_HEAD
       fi
     fi
     if [ -z "${sha}" ] ; then

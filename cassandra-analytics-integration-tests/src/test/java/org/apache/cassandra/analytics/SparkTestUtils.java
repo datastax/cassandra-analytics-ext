@@ -34,14 +34,18 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.vdurmont.semver4j.Semver;
 import org.apache.cassandra.distributed.api.ICluster;
 import org.apache.cassandra.distributed.api.IInstance;
 import org.apache.cassandra.distributed.shared.JMXUtil;
+import org.apache.cassandra.distributed.shared.Versions;
 import org.apache.cassandra.sidecar.common.server.dns.DnsResolver;
 import org.apache.cassandra.sidecar.testing.MtlsTestHelper;
 import org.apache.cassandra.sidecar.testing.QualifiedName;
 import org.apache.cassandra.spark.KryoRegister;
 import org.apache.cassandra.spark.bulkwriter.BulkSparkConf;
+import org.apache.cassandra.testing.TestVersion;
+import org.apache.cassandra.testing.TestVersionSupplier;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.sql.DataFrameReader;
@@ -141,7 +145,7 @@ public class SparkTestUtils
         // merge in additionalOptions; note that for options with the same name, the entries in additionalOptions are kept
         options.putAll(additionalOptions);
 
-        return sql.read().format("org.apache.cassandra.spark.sparksql.CassandraDataSource")
+        return sql.read().format("org.apache.cassandra.spark.sparksql.HcdDataSource")
                   .options(options)
                   .options(mtlsTestHelper.mtlOptionMap());
     }
@@ -159,7 +163,7 @@ public class SparkTestUtils
                                                                  Map<String, String> additionalOptions)
     {
         return df.write()
-                 .format("org.apache.cassandra.spark.sparksql.CassandraDataSink")
+                 .format("org.apache.cassandra.spark.sparksql.HcdDataSink")
                  .option("sidecar_contact_points", sidecarInstancesOption(cluster, dnsResolver))
                  .option("keyspace", tableName.keyspace())
                  .option("table", tableName.table())
@@ -176,7 +180,7 @@ public class SparkTestUtils
                                                                      Map<String, String> additionalOptions)
     {
         return df.write()
-                 .format("org.apache.cassandra.spark.sparksql.CassandraDataSink")
+                 .format("org.apache.cassandra.spark.sparksql.HcdDataSink")
                  .option("keyspace", tableName.keyspace())
                  .option("table", tableName.table())
                  .option("bulk_writer_cl", "LOCAL_QUORUM")
@@ -277,5 +281,15 @@ public class SparkTestUtils
                                 return ipAddress;
                             }
                         });
+    }
+
+    /**
+     * Utility method to know Cassandra cluster version before it is being initialized.
+     */
+    public static Semver getDTestClusterVersion()
+    {
+        Versions versions = Versions.find();
+        TestVersion testVersion = TestVersionSupplier.testVersions().findFirst().orElseThrow();
+        return versions.getLatest(new Semver(testVersion.version(), Semver.SemverType.LOOSE)).version;
     }
 }

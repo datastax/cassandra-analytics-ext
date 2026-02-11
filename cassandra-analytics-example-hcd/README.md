@@ -28,7 +28,8 @@ cp examples/sidecar-ccm/conf/sidecar-ccm.yaml examples/sidecar-hcd.yaml
 Configure the `examples/sidecar-hcd.yaml` file for your local environment. You will most likely need to
 update only the `cassandra_instances` section pointing to your local Cassandra data directories.
 Below snippet presents how my `cassandra_instances` configuration looks like for this tutorial (running
-only single-node HCD cluster).
+only single-node HCD cluster). Whenever necessary, specify correct local data center name in
+`driver_parameters.local_dc` parameter.
 
 ```yaml
 cassandra_instances:
@@ -45,7 +46,47 @@ cassandra_instances:
     jmx_host: 127.0.0.1
     jmx_port: 7100
     jmx_ssl_enabled: false
+
+# ...
+
+driver_parameters:
+  contact_points:
+    - "127.0.0.1:9042"
+  username: cassandra
+  password: cassandra
+  ssl:
+    enabled:  false
+    keystore:
+      type: PKCS12
+      path: path/to/keystore.p12
+      password: password
+    truststore:
+      type: PKCS12
+      path: path/to/keystore.p12
+      password: password
+  num_connections: 6
+  local_dc: datacenter1
 ```
+
+Update of version regexp pattern may be needed in case of HCD 2.0 cluster:
+
+```diff
+diff --git a/server/src/main/java/org/apache/cassandra/sidecar/utils/SimpleCassandraVersion.java b/server/src/main/java/org/apache/cassandra/sidecar/utils/SimpleCassandraVersion.java
+index 637865a..67e1dee 100644
+--- a/server/src/main/java/org/apache/cassandra/sidecar/utils/SimpleCassandraVersion.java
++++ b/server/src/main/java/org/apache/cassandra/sidecar/utils/SimpleCassandraVersion.java
+@@ -45,7 +45,7 @@ public class SimpleCassandraVersion implements Comparable<SimpleCassandraVersion
+      * note: 3rd group matches to words but only allows number and checked after regexp test.
+      * this is because 3rd and the last can be identical.
+      **/
+-    private static final String VERSION_REGEXP = "(\\d+)\\.(\\d+)(?:\\.(\\w+))?(\\-[.\\w]+)?([.+][.\\w]+)?";
++    private static final String VERSION_REGEXP = "(\\d+)\\.(\\d+)(?:\\.(\\w+))(?:\\.(\\w+))?(\\-[.\\w]+)?([.+][.\\w]+)?";
+ 
+     private static final Pattern PATTERN = Pattern.compile(VERSION_REGEXP);
+     private static final String SNAPSHOT = "-SNAPSHOT";
+```
+
+Finally, run the Sidecar:
 
 ```shell
 $ ./gradlew run -Dsidecar.config=file:///$PWD/examples/sidecar-hcd.yaml
@@ -79,5 +120,11 @@ Navigate to `cassandra-analytics-ext` directory and execute:
 ```shell
 $ ./gradlew :cassandra-analytics-example-hcd:run \
     -Dspark.keyspace="spark_test" \
-    -Dspark.table="test"
+    -Dspark.table="test" \
+    --args="count"
+
+$ ./gradlew :cassandra-analytics-example-hcd:run \
+    -Dspark.keyspace="spark_test" \
+    -Dspark.table="test" \
+    --args="write"
 ```
