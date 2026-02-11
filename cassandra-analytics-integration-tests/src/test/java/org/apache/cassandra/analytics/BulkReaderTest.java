@@ -20,6 +20,7 @@
 package org.apache.cassandra.analytics;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +30,7 @@ import org.junit.jupiter.api.Test;
 import org.apache.cassandra.distributed.api.ConsistencyLevel;
 import org.apache.cassandra.distributed.api.IInstance;
 import org.apache.cassandra.sidecar.testing.QualifiedName;
+import org.apache.cassandra.testing.ClusterBuilderConfiguration;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 
@@ -36,6 +38,7 @@ import static org.apache.cassandra.testing.TestUtils.DC1_RF1;
 import static org.apache.cassandra.testing.TestUtils.TEST_KEYSPACE;
 import static org.apache.cassandra.testing.TestUtils.uniqueTestTableFullName;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatRuntimeException;
 
 /**
  * Tests bulk reader functionality
@@ -46,6 +49,32 @@ class BulkReaderTest extends SharedClusterSparkIntegrationTestBase
     QualifiedName table1 = uniqueTestTableFullName(TEST_KEYSPACE);
     QualifiedName table2 = uniqueTestTableFullName(TEST_KEYSPACE);
     QualifiedName tableForNullStaticColumn = uniqueTestTableFullName(TEST_KEYSPACE);
+
+    @Override
+    protected ClusterBuilderConfiguration testClusterConfiguration()
+    {
+        return super.testClusterConfiguration()
+                    .nodesPerDc(2);
+    }
+
+    @Test
+    void testDynamicSizingOption()
+    {
+        Dataset<Row> data = bulkReaderDataFrame(table1).option("SIZING", "dynamic").load();
+
+        List<Row> rows = data.collectAsList().stream()
+                             .sorted(Comparator.comparing(row -> row.getInt(0)))
+                             .collect(Collectors.toList());
+        assertThat(rows.size()).isEqualTo(DATASET.size());
+    }
+
+    @Test
+    void failsOnInvalidSizingOption()
+    {
+        assertThatRuntimeException().isThrownBy(() -> bulkReaderDataFrame(tableForNullStaticColumn).option("SIZING", "invalid")
+                                                                                                   .load())
+                                    .withMessageContaining("Invalid sizing option provided 'invalid'");
+    }
 
     @Test
     void testReadNullStaticColumn()
@@ -97,6 +126,24 @@ class BulkReaderTest extends SharedClusterSparkIntegrationTestBase
             assertThat(rowList2.get(i).getString(0)).isEqualTo(DATASET.get(i));
             assertThat(rowList2.get(i).getLong(1)).isEqualTo(i);
         }
+    }
+
+    @Test
+    void testUsingSingleSidecarContactPoint()
+    {
+        String singleSidecar = SparkTestUtils.sidecarInstancesOptionStream(cluster, dnsResolver)
+                                             .limit(1)
+                                             .collect(Collectors.joining());
+        assertThat(cluster.size()).isEqualTo(2);
+        assertThat(singleSidecar.contains(","))
+        .describedAs("should not contain the separator ',' as it should have one single contact point")
+        .isFalse();
+        Dataset<Row> data = bulkReaderDataFrame(table1, Collections.singletonMap("sidecar_contact_points", singleSidecar)).load();
+
+        List<Row> rows = data.collectAsList().stream()
+                             .sorted(Comparator.comparing(row -> row.getInt(0)))
+                             .collect(Collectors.toList());
+        assertThat(rows.size()).isEqualTo(DATASET.size());
     }
 
     @Override

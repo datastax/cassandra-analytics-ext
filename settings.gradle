@@ -16,11 +16,19 @@
 
 rootProject.name = 'cassandra-analytics-ext'
 include 'cassandra-analytics-core-ext'
+
 include 'cassandra-four-nine'
 include 'cassandra-four-nine-avro-converter'
 include 'cassandra-four-nine-bridge'
 include 'cassandra-four-nine-types'
 include 'cassandra-analytics-spark-four-nine-converter'
+
+include 'cassandra-five-zero'
+include 'cassandra-five-zero-avro-converter'
+include 'cassandra-five-zero-bridge'
+include 'cassandra-five-zero-types'
+include 'cassandra-analytics-spark-five-zero-converter'
+
 include 'cassandra-analytics-example-hcd'
 include 'cassandra-analytics-integration-framework'
 include 'cassandra-analytics-integration-tests'

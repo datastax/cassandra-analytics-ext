@@ -22,11 +22,11 @@ plugins {
     id('com.gradleup.shadow')
 }
 
-ext.dtestJar = System.getenv("DTEST_JAR") ?: "dtest-${project.datastaxCassandraVersion}.jar"
+ext.dtestJar = System.getenv("DTEST_JAR") ?: "dtest-${project.datastaxCassandra4Version}.jar"
 def dtestJarFullPath = "${rootDir}/dependencies/${ext.dtestJar}"
 
 dependencies {
-    implementation libs.cassandra.analytics.integration.framework
+    implementation("org.apache.cassandra:cassandra-analytics-integration-framework_spark3_${scalaVersion}:${analyticsVersion}")
 
     println("Using DTest JAR: " + dtestJarFullPath)
     // The dtest jar must be a compile only dependency. We want to avoid having this jar in the

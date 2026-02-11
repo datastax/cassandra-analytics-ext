@@ -33,10 +33,15 @@ import java.util.function.Function;
 
 import com.google.common.collect.ImmutableSet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.apache.cassandra.bridge.TokenRange;
 import org.apache.cassandra.db.DecoratedKey;
 import org.apache.cassandra.db.SerializationHeader;
 import org.apache.cassandra.dht.IPartitioner;
+import org.apache.cassandra.dht.Range;
+import org.apache.cassandra.dht.Token;
 import org.apache.cassandra.io.compress.CompressionMetadata;
 import org.apache.cassandra.io.sstable.Component;
 import org.apache.cassandra.io.sstable.Descriptor;
@@ -60,6 +65,7 @@ import org.apache.cassandra.spark.sparksql.filters.PartitionKeyFilter;
 import org.apache.cassandra.spark.sparksql.filters.SparkRangeFilter;
 import org.apache.cassandra.spark.utils.streaming.BufferingInputStream;
 import org.apache.cassandra.utils.FilterFactory;
+import org.apache.cassandra.utils.TokenUtils;
 import org.apache.cassandra.utils.bytecomparable.ByteComparable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -69,6 +75,8 @@ import static org.apache.cassandra.spark.reader.BigIndexReader.calculateCompress
 
 public class BtiReaderUtils
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(BtiReaderUtils.class);
+
     private static final Set<Component> indexComponents = ImmutableSet.of(Component.DATA,
                                                                           Component.PARTITION_INDEX,
                                                                           Component.ROW_INDEX);
@@ -135,6 +143,59 @@ public class BtiReaderUtils
             exists.set(false);
         });
         return exists.get();
+    }
+
+    @Nullable
+    public static Long startOffsetInDataFile(@NotNull SSTable ssTable,
+                                             @NotNull TableMetadata metadata,
+                                             @NotNull Descriptor descriptor,
+                                             @NotNull TokenRange tokenRange)
+    {
+        final AtomicReference<Long> offset = new AtomicReference<>(null);
+
+        Token tokenStart = TokenUtils.bigIntegerToToken(metadata.partitioner, tokenRange.lowerEndpoint());
+        Token tokenEnd = TokenUtils.bigIntegerToToken(metadata.partitioner, tokenRange.upperEndpoint());
+        Range<Token> range = new Range<>(tokenStart, tokenEnd);
+
+        try
+        {
+            withPartitionIndex(ssTable, descriptor, metadata, true, false, (dataFileHandle, partitionFileHandle, rowFileHandle, partitionIndex) -> {
+                TableMetadataRef metadataRef = TableMetadataRef.forOfflineTools(metadata);
+                SerializationHeader header = SerializationHeader.make(metadata, Collections.emptyList());
+                StatsMetadata sstableMetadata = getStatsMetadata(metadata, header);
+                TrieIndexSSTableReader btiTableReader = TrieIndexSSTableReader.internalOpen(descriptor,
+                                                                                            indexComponents,
+                                                                                            metadataRef,
+                                                                                            partitionFileHandle,
+                                                                                            dataFileHandle,
+                                                                                            partitionIndex,
+                                                                                            FilterFactory.AlwaysPresent,
+                                                                                            System.currentTimeMillis(),
+                                                                                            sstableMetadata,
+                                                                                            SSTableReader.OpenReason.NORMAL,
+                                                                                            header);
+                try
+                {
+                    List<SSTableReader.PartitionPositionBounds> positions =
+                            btiTableReader.getPositionsForRanges(Collections.singletonList(range));
+                    if (!positions.isEmpty())
+                    {
+                        // we should receive zero or one position
+                        offset.set(positions.get(0).lowerPosition);
+                    }
+                }
+                finally
+                {
+                    btiTableReader.selfRef().release();
+                }
+            });
+        }
+        catch (IOException e)
+        {
+            LOGGER.warn("Failed to lookup start offset for token range {} in sstable {}",
+                        tokenRange, ssTable, e);
+        }
+        return offset.get();
     }
 
     public static void consumePrimaryIndex(@NotNull SSTable ssTable,
@@ -261,9 +322,9 @@ public class BtiReaderUtils
                                            @NotNull BtiPartitionIndexConsumer consumer) throws IOException
     {
         File file = new File(ssTable.getDataFileName());
-        CompressionMetadata compression = getCompressionMetadata(ssTable, crcCheckChance, descriptor);
 
-        try (FileHandle dataFileHandle = loadDataFile ? createFileHandle(file,
+        try (CompressionMetadata compression = getCompressionMetadata(ssTable, crcCheckChance, descriptor);
+             FileHandle dataFileHandle = loadDataFile ? createFileHandle(file,
                                                                          ssTable.openDataStream(),
                                                                          ssTable.length(FileType.DATA),
                                                                          compression).complete() : null;

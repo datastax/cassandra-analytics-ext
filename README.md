@@ -16,12 +16,13 @@ Supported Versions
 | Library Version | DataStax HCD |
 |-----------------|--------------|
 | 0.1             | 1.x          |
+| 0.2             | 1.x, 2.0     |
 
 Implementation Note
 -------------------
 
-At the moment of writing, DataStax Astra and HCD are based on Cassandra 4.x with BTI support. Shipped BTI format
-is prior to the one donated to open-source Cassandra 5.x. Therefore, set of custom _four nine_ bridge modules
-had to be implemented allowing consumption of proprietary sstable version. Cassandra Analytics does not support
-dynamic registration of new bridge modules. The output uber-JAR of `cassandra-analytics-core-ext` **replaces**
-Cassandra 4.0 bridges with DataStax 4.9 modules.
+At the moment of writing, DataStax Astra and HCD are based on Cassandra 4.x with BTI support, and Cassandra 5.x.
+Skipped sstable format is different to the one from open-source Cassandra distribution. Therefore, set of custom
+_four nine_ and _five zero_ bridge modules had to be implemented allowing consumption of proprietary sstable version.
+Cassandra Analytics does not support dynamic registration of new bridge modules. The output uber-JAR of
+`cassandra-analytics-core-ext` **replaces** Cassandra 4.0 and 5.0 bridges with DataStax 4.9 and 5.0 modules.
