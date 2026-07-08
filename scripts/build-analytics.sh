@@ -51,6 +51,11 @@ build_oss_analytics() {
   # build Cassandra Analytics dependencies
   CASSANDRA_USE_JDK11=true ./scripts/build-dependencies.sh
 
+  # HACK! OSS community does not agree to implement an option to disable SAN hostname validation, which we could not
+  # workaround in Mission Control Kubernetes environment. For now we are disabling hostname validation and publishing
+  # patched JAR.
+  $SED -i "s|options = options.setSsl(true);|options = options.setSsl(true).setVerifyHost(false);|" analytics-sidecar-vertx-client/src/main/java/org/apache/cassandra/sidecar/client/VertxHttpClient.java
+
   # build Cassandra Analytics
   ./gradlew clean build -x check
 
@@ -132,3 +137,8 @@ mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.1:get \
   -Dartifact=com.github.jnr:jffi:1.3.10:jar:native
 
 ./gradlew clean :cassandra-analytics-core-ext:assemble -x check
+
+# HACK! Copy artefact with disable SAN validation.
+mvn org.apache.maven.plugins:maven-dependency-plugin:3.1.1:copy \
+  -Dartifact=org.apache.cassandra:analytics-sidecar-vertx-client-all:${CASSANDRA_ANALYTICS_VERSION} \
+  -DoutputDirectory=./cassandra-analytics-core-ext/build/libs/
